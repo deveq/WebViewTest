@@ -1,0 +1,25 @@
+<html><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <h2>WebView Test</h2>
+    <h3>WebView -> RN</h3>
+    <p><input type="button" value="open new mail" onclick="openNewWindow();"></p>
+    <p><input type="button" value="close this" onclick="closeThis();"></p>
+
+    <script>
+        function closeThis() {
+            console.log('clicked close button');
+            var payload = { command: 'close' };
+            window.ReactNativeWebView.postMessage(JSON.stringify(payload));
+        }
+        function openNewWindow() {
+            console.log('clicked open button');
+            var payload = { command: 'open', args: { target: 'mail' } };
+            window.ReactNativeWebView.postMessage(JSON.stringify(payload));
+        }
+    </script>
+
+
+</body></html>
